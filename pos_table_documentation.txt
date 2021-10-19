@@ -1,0 +1,74 @@
+pos application Database  documentation 
+user_list
+.............
+id
+fullname
+username
+roll
+lastactivity
+password
+
+
+category_list
+..............
+id
+cat_name
+cat_code
+cat_icon
+
+product_list
+.............
+id
+product_name
+product_code
+product_icon
+product_price
+product_category
+product_remarks
+
+Create table 
+.............
+Schema::create ('user_list',fuction (Blueprint $table){
+   	$table->bigIncrements('id');
+	$table->string('fullname');
+	$table->string('username');
+	$table->string('roll');
+	$table->string('lastactivity');
+	$table->string('password');
+});
+                                
+Schema::create ('category_list',fuction (Blueprint $table){
+   	$table->bigIncrements('id');
+	$table->string('cat_name');
+	$table->string('cat_code');
+	$table->string('cat_icon');
+	
+});
+
+Schema::create ('product_list',fuction (Blueprint $table){
+   	$table->bigIncrements('id');
+	$table->string('product_name');
+	$table->string('product_code');
+	$table->string('product_icon');
+	$table->string('product_price');
+	$table->string('product_category');
+	$table->string('product_remarks');
+	
+});
+
+
+Model 
+.............
+public $table='user_list';
+public $primaryKey='id';
+public $incrementing='true';
+public $KeyType='int';
+public $timestamps='false';
+
+Migration command
+....................
+php artisan make:migration user_list_table        php artisan make:model UserModel      php artisan make:controller UserController 
+php artisan make:migration category_list_table    php artisan make:model CategoryModel  php artisan make:controller CategoryController
+php artisan make:migration product_list_table     php artisan make:model ProductModel   php artisan make:controller ProductController
+
+php artisan migrate
